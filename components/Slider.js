@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 function Slider(props) {
-  let handleClick = (e) => {
+  const shadow = props.shadow;
+  const handleClick = (e) => {
     console.log("cliced");
   };
 
@@ -11,24 +11,106 @@ function Slider(props) {
     <>
       <style jsx>
         {`
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
           .slider {
             margin: 0 auto;
             width: 460px;
-            border: solid red 4px;
+            position: relative;
           }
+
+          .slider::before {
+            content: "<";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            left: -50px;
+            z-index: 10;
+            background-image: linear-gradient(
+              90deg,
+              rgba(8, 3, 0, 0) 0%,
+              ${shadow} 51%,
+              rgba(0, 0, 0, 0) 100%
+            );
+
+            border-radius: 6px;
+            mix-blend-mode: normal;
+            pointer-events: none;
+          }
+          .slider::after {
+            content: ">";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            left: 410px;
+            top: 0;
+            z-index: 10;
+            background-image: linear-gradient(
+              90deg,
+              rgba(8, 3, 0, 0) 0%,
+              ${shadow} 51%,
+              rgba(0, 0, 0, 0) 100%
+            );
+            pointer-events: none;
+            mix-blend-mode: normal;
+          }
+
           .img_cont {
             border-radius: 10px;
             overflow: hidden;
-            border: solid black 1px;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100px;
             height: 100px;
+            transition: all 0.5 ease;
+          }
+
+          .img_cont:hover {
+            transform: scale(1.05);
           }
           .slider_img {
             width: 100%;
             height: auto;
+          }
+          .mostarTodas {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.4);
+            background-image: radial-gradient(
+              circle,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(5, 89, 0, 0.75) 50%
+            );
+            margin: auto auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Oswald", sans-serif;
+            border-radius: 10px;
+          }
+          .mostarTodas:hover {
+            transform: scale(1.05);
+          }
+          .mostarTodas-a {
+            display: block;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
           }
         `}
       </style>
@@ -44,7 +126,7 @@ function Slider(props) {
               console.log();
               return (
                 <SwiperSlide key={item.id}>
-                  <Link className="" href={`${item.to}`}>
+                  <Link href={`${item.to}`}>
                     <a onClick={handleClick} className="img_cont">
                       <img className="slider_img" src={item.logo} />
                     </a>
@@ -53,6 +135,13 @@ function Slider(props) {
               );
             }
           })}
+          <SwiperSlide key="unique">
+            <div className="mostarTodas">
+              <Link href="/radios">
+                <a className="mostarTodas-a">TODAS LAS RADIOS</a>
+              </Link>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
     </>

@@ -7,9 +7,10 @@ const radiosinfo = {
       page: "Home",
       backgroundImage: "",
       backgroundColor:
-        "radial-gradient(circle, rgba(5,89,0,0.75) 0%, rgba(0,0,0,1) 57%)",
+        "radial-gradient(circle, rgba(5,89,0,0.75) 0%, rgba(0,0,0,1) 50%)",
       logo: `/images/logoEPA.png`,
       to: "/",
+      shadow: "#000",
     },
     {
       id: ++id,
@@ -20,6 +21,7 @@ const radiosinfo = {
       backgroundColor: "",
       stream: `https://streaming.gometri.com/stream/8025/stream`,
       to: "/radio/lanube",
+      shadow: "#f7f7f7",
     },
     {
       id: ++id,
@@ -30,6 +32,7 @@ const radiosinfo = {
       backgroundColor: "",
       stream: `https://streaming.gometri.com/stream/8017/stream`,
       to: "/radio/cumbiamix",
+      shadow: "#112555",
     },
     {
       id: ++id,
@@ -37,9 +40,10 @@ const radiosinfo = {
       page: "Onda Cero",
       backgroundImage: "",
       backgroundColor: "radial-gradient(#FEE248 30%, #FFA01C 100%)",
-      logo: `/images/logo_ondacero.png`,
+      logo: `/images/logo_ondaclasico.png`,
       stream: `https://streaming.gometri.com/stream/8011/stream`,
       to: "/radio/ondacero",
+      shadow: "#fec233",
     },
     {
       id: ++id,
@@ -50,6 +54,7 @@ const radiosinfo = {
       backgroundColor: "",
       stream: `https://streaming.gometri.com/stream/8000/stream`,
       to: "/radio/panamericana",
+      shadow: "#b70101",
     },
     {
       id: ++id,
@@ -60,6 +65,7 @@ const radiosinfo = {
       artistas: `/images/artistas_oncesesenta.png`,
       backgroundColor: "",
       stream: `https://streaming.gometri.com/stream/8021/stream`,
+      shadow: "#242424",
       to: "/radio/oncesesenta",
     },
     {
@@ -71,6 +77,7 @@ const radiosinfo = {
       backgroundColor: "linear-gradient(to left, #000 0%, #000 100%)",
       stream: `https://streaming.gometri.com/stream/8007/stream`,
       to: "/radio/lavaca",
+      shadow: "#000",
     },
     {
       id: ++id,
@@ -81,6 +88,7 @@ const radiosinfo = {
       backgroundColor: "linear-gradient(to left, #000 0%, #000 100%)",
       stream: `http://65.60.2.26:8044/stream?icy=http`,
       to: "/radio/radiocomas",
+      shadow: "#000",
     },
     {
       id: ++id,
@@ -88,9 +96,11 @@ const radiosinfo = {
       page: "Viva FM",
       backgroundImage: "",
       logo: `/images/logo_vivafm.jpg`,
-      backgroundColor: "linear-gradient(to left, #000 0%, #000 100%)",
+      backgroundColor:
+        "radial-gradient(circle, rgba(254,173,3,1) 0%, rgba(254,126,0,1) 100%)",
       stream: `https://tupanel.info:8746/stream`,
       to: "/radio/vivafm",
+      shadow: "#ff9c03",
     },
     {
       id: ++id,
@@ -101,6 +111,7 @@ const radiosinfo = {
       backgroundColor: "linear-gradient(to left, #000 0%, #000 100%)",
       stream: "http://167.114.118.120:7444/stream",
       to: "/radio/exitosa",
+      shadow: "#000",
     },
     {
       id: ++id,
@@ -109,8 +120,10 @@ const radiosinfo = {
       backgroundImage: "",
       logo: `/images/logo_ondavip.png`,
       backgroundColor: "radial-gradient(#452F11 30%, #170F01 100%)",
+      artistas: `/images/artistas_vip.png`,
       stream: `https://streaming.gometri.com/stream/8039/stream`,
       to: "/radio/ondavip",
+      shadow: "#35240b",
     },
     {
       id: ++id,
@@ -118,9 +131,11 @@ const radiosinfo = {
       page: "Onda cero Feeling",
       backgroundImage: "",
       logo: `/images/logo_ondafeeling.png`,
+      artistas: `/images/artistas_feeling.png`,
       backgroundColor: "radial-gradient(#960C88 30%, #260023 100%)",
       stream: `https://streaming.gometri.com/stream/8035/stream`,
       to: "/radio/ondafeeling",
+      shadow: "#6b0861",
     },
     {
       id: ++id,
@@ -129,8 +144,10 @@ const radiosinfo = {
       backgroundImage: `/images/fondo_leyendas.png`,
       logo: `/images/logo_ondaleyendas.png`,
       backgroundColor: "radial-gradient(#452F11 30%, #170F01 100%)",
+      artistas: `/images/artistas_leyendas.png`,
       stream: `https://streaming.gometri.com/stream/8033/stream`,
       to: "/radio/ondaleyendas",
+      shadow: "#223307",
     },
   ],
 };
