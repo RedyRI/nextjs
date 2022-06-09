@@ -11,6 +11,7 @@ const radiosinfo = {
       logo: `/images/logoEPA.png`,
       to: "/",
       shadow: "#000",
+      ciudad: "lima",
     },
     {
       id: ++id,
@@ -22,6 +23,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8025/stream`,
       to: "/radio/lanube",
       shadow: "#f7f7f7",
+      ciudad: "lima",
     },
     {
       id: ++id,
@@ -33,6 +35,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8017/stream`,
       to: "/radio/cumbiamix",
       shadow: "#112555",
+      ciudad: "lima",
     },
     {
       id: ++id,
@@ -44,6 +47,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8011/stream`,
       to: "/radio/ondacero",
       shadow: "#fec233",
+      ciudad: "lima",
     },
     {
       id: ++id,
@@ -55,6 +59,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8000/stream`,
       to: "/radio/panamericana",
       shadow: "#b70101",
+      ciudad: "lima",
     },
     {
       id: ++id,
@@ -67,6 +72,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8021/stream`,
       shadow: "#242424",
       to: "/radio/oncesesenta",
+      ciudad: "trujillo",
     },
     {
       id: ++id,
@@ -78,6 +84,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8007/stream`,
       to: "/radio/lavaca",
       shadow: "#000",
+      ciudad: "chimbote",
     },
     {
       id: ++id,
@@ -89,18 +96,20 @@ const radiosinfo = {
       stream: `http://65.60.2.26:8044/stream?icy=http`,
       to: "/radio/radiocomas",
       shadow: "#000",
+      ciudad: "cajamarca",
     },
     {
       id: ++id,
       name: "vivafm",
       page: "Viva FM",
       backgroundImage: "",
-      logo: `/images/logo_vivafm.jpg`,
+      logo: `/images/logo_vivafm.png`,
       backgroundColor:
         "radial-gradient(circle, rgba(254,173,3,1) 0%, rgba(254,126,0,1) 100%)",
       stream: `https://tupanel.info:8746/stream`,
       to: "/radio/vivafm",
       shadow: "#ff9c03",
+      ciudad: "piura",
     },
     {
       id: ++id,
@@ -112,11 +121,12 @@ const radiosinfo = {
       stream: "http://167.114.118.120:7444/stream",
       to: "/radio/exitosa",
       shadow: "#000",
+      ciudad: "piura",
     },
     {
       id: ++id,
       name: "ondavip",
-      page: "Onda cero Vip",
+      page: "Onda Vip",
       backgroundImage: "",
       logo: `/images/logo_ondavip.png`,
       backgroundColor: "radial-gradient(#452F11 30%, #170F01 100%)",
@@ -124,11 +134,12 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8039/stream`,
       to: "/radio/ondavip",
       shadow: "#35240b",
+      ciudad: "lima",
     },
     {
       id: ++id,
       name: "ondafeeling",
-      page: "Onda cero Feeling",
+      page: "Onda Feeling",
       backgroundImage: "",
       logo: `/images/logo_ondafeeling.png`,
       artistas: `/images/artistas_feeling.png`,
@@ -136,11 +147,12 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8035/stream`,
       to: "/radio/ondafeeling",
       shadow: "#6b0861",
+      ciudad: "lima",
     },
     {
       id: ++id,
       name: "ondaleyendas",
-      page: "Onda cero Leyendas",
+      page: "Onda Leyendas",
       backgroundImage: `/images/fondo_leyendas.png`,
       logo: `/images/logo_ondaleyendas.png`,
       backgroundColor: "radial-gradient(#452F11 30%, #170F01 100%)",
@@ -148,6 +160,7 @@ const radiosinfo = {
       stream: `https://streaming.gometri.com/stream/8033/stream`,
       to: "/radio/ondaleyendas",
       shadow: "#223307",
+      ciudad: "cusco",
     },
   ],
 };

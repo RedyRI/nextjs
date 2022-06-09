@@ -37,7 +37,7 @@ function Navbar() {
           position: fixed;
           cursor: pointer;
           height: 100vh;
-          transition: width ease 0.2s;
+          transition: all linear 0.1s;
           z-index: 10;
         }
         .Navbar:hover {
@@ -51,6 +51,8 @@ function Navbar() {
         }
         li {
           display: block;
+          color: black;
+          transition: all 0.2s linear;
         }
         .Navbar_link {
           display: flex;

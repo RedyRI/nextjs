@@ -4,6 +4,7 @@ import axios from "axios";
 import Slider from "../../components/Slider";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
+import Playbar from "../../components/Playbar";
 
 function Radio(radio) {
   const [data, setData] = useState();
@@ -26,34 +27,39 @@ function Radio(radio) {
     <Layout>
       <style jsx>
         {`
+          * {
+            box-sizing: border-box;
+          }
           .Radio {
-            width: 100vw;
-            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
             background-image: ${background};
             background-size: cover;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+            overflow: hidden;
           }
           .Radio_logo {
             width: 400px;
             height: 400px;
-            margin: 20px auto;
+            margin: 20px auto 0 auto;
           }
           .Radio_logo.artistas {
             border: solid red 1px;
           }
 
           .Radio_logo.artistas > img {
+            border: solid green 1px;
           }
           .Radio_logo-img {
             width: 100%;
             height: auto;
-            border: solid green 1px;
           }
         `}
       </style>
       <main className="Radio">
-        <div className="radio_slider">
-          <Header />
-        </div>
+        <Header />
         <div className="Radio_slider">
           <Slider shadow={radio.shadow} data={data} />
         </div>
@@ -78,9 +84,10 @@ function Radio(radio) {
                 ? radio.artistas
                 : radio.logo
             }
-            alt=""
+            alt={radio.name}
           />
         </div>
+        <Playbar />
       </main>
     </Layout>
   );
