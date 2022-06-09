@@ -25,8 +25,8 @@ export default function Home(data) {
             }
             .Home_logo {
               margin: 0 auto;
-              width: 450px;
-              height: 450px;
+              width: 500px;
+              height: 500px;
             }
           `}
         </style>
