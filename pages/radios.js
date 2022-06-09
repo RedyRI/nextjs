@@ -38,6 +38,7 @@ function Radios() {
     console.log(city.value);
   };
   console.log(list);
+  let key = 0;
   return (
     <>
       <style jsx>
@@ -144,7 +145,11 @@ function Radios() {
         </div>
         <div className="Radios_list">
           {aux.map((e) => {
-            return <RadioCard info={e} />;
+            return (
+              <div key={key++}>
+                <RadioCard info={e} />
+              </div>
+            );
           })}
         </div>
         <footer className="Radios_footer"></footer>

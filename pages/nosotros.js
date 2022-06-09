@@ -19,7 +19,7 @@ function About() {
         <Link href="/">
           <a className="About-btn">Volver</a>
         </Link>
-        <buton onClick={handleClick}>go back</buton>
+        <button onClick={handleClick}>go back</button>
       </main>
     </Layout>
   );
