@@ -38,8 +38,8 @@ export default function Home(data) {
               left: 50%;
               transform: translate(-50%, -40%);
               margin: 0 auto;
-              width: 450px;
-              height: 450px;
+              width: 500px;
+              height: 500px;
             }
             .Home_logo > img {
               width: 450px;
