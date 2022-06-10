@@ -38,7 +38,7 @@ function Navbar() {
           cursor: pointer;
           height: 100vh;
           transition: all linear 0.1s;
-          z-index: 10;
+          z-index: 20;
         }
         .Navbar:hover {
           width: 210px;

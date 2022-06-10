@@ -1,12 +1,40 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+
+
 function Slider(props) {
   const shadow = props.shadow;
+  const data = props.data;
   const handleClick = (e) => {
     console.log("cliced");
   };
+  console.log(`the array length is ${props.data.length}`);
 
+  if (props.data.length == 0) {
+    return (
+      <>
+        <div className="fallback">
+          <h1>Loading ...</h1>
+        </div>
+        <style jsx>{`
+          .fallback {
+            width: 400px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        `}</style>
+      </>
+    );
+  }
+
+  // console.log(data.length < 0 ? "data is no here yet" : "now we have data");
   return (
     <>
       <style jsx>
@@ -121,7 +149,7 @@ function Slider(props) {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {props.data?.map((item) => {
+          {data?.map((item) => {
             if (item.name != "home") {
               console.log();
               return (

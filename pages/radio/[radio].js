@@ -1,13 +1,18 @@
 import Layout from "../../components/Layout";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { useRouter } from "next/router";
 import Slider from "../../components/Slider";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Playbar from "../../components/Playbar";
 
-function Radio(radio) {
-  const [data, setData] = useState();
+function Radio() {
+  const [data, setData] = useState([]);
+  const router = useRouter();
+  const radio =
+    data != undefined && data.length > 0
+      ? data.filter((r) => r.name == router.query.radio)[0]
+      : {};
   const background =
     radio.backgroundImage != ""
       ? `url('${radio.backgroundImage}')`
@@ -15,14 +20,17 @@ function Radio(radio) {
       ? radio.backgroundColor
       : "linear-gradient(to left, #000 0%, #000 100%)";
   useEffect(() => {
-    fetch("http://localhost:3000/api/radios")
+    fetch(`https://epabackend.azurewebsites.net/radios`)
       .then((response) => response.json())
-      .then((r) => {
-        setData(r["radios"]);
+      .then((radios) => {
+        setData(radios);
       })
       .catch((e) => console.error("el error es -------" + e));
   }, []);
-  console.log(radio.backgroundImage);
+
+  // `https://epabackend.azurewebsites.net/radios?page=${router.query.radio}`;
+  console.log(router.query.radio);
+  console.log(radio);
   return (
     <Layout>
       <style jsx>
@@ -33,6 +41,7 @@ function Radio(radio) {
           .Radio {
             width: 100%;
             height: 100vh;
+            background-color: black;
             background-image: ${background};
             background-size: cover;
             margin: 0;
@@ -46,11 +55,9 @@ function Radio(radio) {
             margin: 20px auto 0 auto;
           }
           .Radio_logo.artistas {
-            border: solid red 1px;
           }
 
           .Radio_logo.artistas > img {
-            border: solid green 1px;
           }
           .Radio_logo-img {
             width: 100%;
@@ -87,19 +94,11 @@ function Radio(radio) {
             alt={radio.name}
           />
         </div>
-        <Playbar />
+        {/* <Playbar /> */}
       </main>
     </Layout>
   );
 }
 
-Radio.getInitialProps = async (ctx) => {
-  let q = ctx.query;
-  let radio;
-  await axios.get(`http://localhost:3000/api/${q.radio}`).then((response) => {
-    radio = response.data;
-  });
-  return radio ? radio : { radio: "nodata" };
-};
 
 export default Radio;

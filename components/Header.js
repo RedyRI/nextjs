@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBar from "./SearchBar";
 
 function Header() {
   return (
@@ -12,7 +13,7 @@ function Header() {
             top: 0;
             left: 0;
             background: black;
-            z-index: 10;
+            z-index: 20;
           }
           .Header_bar {
             width: 80%;
@@ -39,27 +40,9 @@ function Header() {
           }
           .Header_bar-searchbar {
             background-color: white;
-            padding: 5px 7px;
             font-family: "Oswald";
             border-radius: 25px;
             display: flex;
-          }
-          .Header_bar-searchbar > input {
-            border: none;
-            outline: none;
-            width: 100px;
-          }
-          .Header_bar-searchbar > img {
-            width: 20px;
-            float: right;
-            margin: 0 5px;
-            cursor: pointer;
-          }
-          .Header_bar-searchbar > img::after {
-            clear: both;
-          }
-          .Header_bar-searchbar > img:active {
-            transform: scale(0.9);
           }
         `}
       </style>
@@ -78,8 +61,7 @@ function Header() {
           </div>
           <div className="Header_bar-right">
             <div className="Header_bar-searchbar">
-              <input type="text" />
-              <img src="/images/lupa.png" alt="icono busqueda" />
+              <SearchBar />
             </div>
           </div>
         </div>

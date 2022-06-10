@@ -3,32 +3,29 @@ import Slider from "../components/Slider";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
-export default function Home(data) {
-  const dataHome = data.radios[0];
+
+export default function Home() {
+  const [data, setData] = useState([]);
+  const dataHome = data[0] || {};
   const shadowHome = dataHome.shadow;
-  const [d, setD] = useState([]);
 
   useEffect(() => {
-    fetch("https://epabackend.azurewebsites.net/radios?name=ond")
+    fetch("https://epabackend.azurewebsites.net/radios")
       .then((res) => res.json())
-      .then((response) => setD(response));
+      .then((response) => {
+        setData(response);
+      });
   }, []);
 
-  console.log(d.length);
-  console.log(shadowHome);
   return (
-    <Layout>
+    <Layout showSlider={true} showPlaybar={false}>
       <main className="Home">
         <Header />
         <div className="Home_slider">
-          <Slider shadow={shadowHome} data={data.radios} />
+          <Slider shadow={shadowHome} data={data} />
         </div>
         <div className="Home_logo">
-          <img
-            className="Home_logo-img"
-            src={dataHome.logo}
-            alt="logo inicio"
-          />
+          <img className="Home_logo-img" src={dataHome.logo} alt="" />
         </div>
         <style jsx>
           {`
@@ -59,11 +56,3 @@ export default function Home(data) {
     </Layout>
   );
 }
-
-Home.getInitialProps = async (ctx) => {
-  let data;
-  await axios.get("http://localhost:3000/api/radios").then((response) => {
-    data = response.data;
-  });
-  return data;
-};

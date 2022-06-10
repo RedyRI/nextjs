@@ -70,13 +70,18 @@ function RadiosPageNavbar() {
               </Link>
             </li>
             <li key={id++}>
-              <Link href="/">
-                <a className="Radios_navbar-link">Nosotros</a>
+              <Link href="/radios">
+                <a className="Radios_navbar-link">Radios</a>
               </Link>
             </li>
             <li key={id++}>
-              <Link href="/">
+              <Link href="/contacto">
                 <a className="Radios_navbar-link">Contacto</a>
+              </Link>
+            </li>
+            <li key={id++}>
+              <Link href="/nosotros">
+                <a className="Radios_navbar-link">Nosotros</a>
               </Link>
             </li>
           </ul>

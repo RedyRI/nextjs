@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
 import RadioCard from "../components/RadioCard";
 import RadiosPageNavbar from "../components/RadiosPageNavbar";
 import Navbar from "/components/Navbar";
@@ -11,38 +10,29 @@ function Radios() {
   const [list, setList] = useState([]);
   const [aux, setAux] = useState([]);
   useEffect(() => {
-    const getData = async () => {
-      await fetch("http://localhost:3000/api/radios")
-        .then((res) => res.json())
-        .then((r) => {
-          setList(r);
-          setAux(r.radios);
-        });
-    };
-
-    getData();
+    fetch("https://epabackend.azurewebsites.net/radios")
+      .then((res) => res.json())
+      .then((response) => {
+        setAux(response);
+        setList(response);
+      });
   }, []);
 
-  console.log("aux is " + aux);
   const filterCity = (e) => {
-    fetch("https://epabackend.azurewebsites.net/radios?city=lima")
-      .then((res) => res.json())
-      .then((response) => setAux(response));
-
-    // let name = document.querySelector("#nombre");
-    // console.log(list, e.target.value, name.value);
-    // let filteredRadios = filterRadios(list.radios, e.target.value, name.value);
-    // console.log(filteredRadios);
-    // setAux(filteredRadios);
+    let name = document.querySelector("#nombre");
+    let filteredRadios = filterRadios(list, e.target.value, name.value);
+    setAux(filteredRadios);
   };
+
   const filterName = (e) => {
     let city = document.querySelector("#ciudad");
-    let filteredRadios = filterRadios(list.radios, city.value, e.target.value);
+    let filteredRadios = filterRadios(list, city.value, e.target.value);
     setAux(filteredRadios);
-    console.log(city.value);
   };
-  console.log(list);
-  let key = 0;
+  /* test code goes here*/
+  console.log(`list is ${list}`);
+  const [checked, setChecked] = React.useState(false);
+  /* test code goes here*/
   return (
     <>
       <style jsx>
@@ -65,6 +55,7 @@ function Radios() {
           .Radios_list {
             display: flex;
             flex-wrap: wrap;
+            min-height: 80vh;
             max-width: 1000px;
             margin: 0 auto;
             justify-content: space-evenly;
@@ -156,6 +147,11 @@ function Radios() {
             );
           })}
         </div>
+
+        {/* test code here  */}
+
+        {/* test code here  */}
+
         <footer className="Radios_footer"></footer>
         <Playbar />
       </div>
