@@ -25,11 +25,15 @@ function Radios() {
 
   console.log("aux is " + aux);
   const filterCity = (e) => {
-    let name = document.querySelector("#nombre");
-    console.log(list, e.target.value, name.value);
-    let filteredRadios = filterRadios(list.radios, e.target.value, name.value);
-    console.log(filteredRadios);
-    setAux(filteredRadios);
+    fetch("https://epabackend.azurewebsites.net/radios?city=lima")
+      .then((res) => res.json())
+      .then((response) => setAux(response));
+
+    // let name = document.querySelector("#nombre");
+    // console.log(list, e.target.value, name.value);
+    // let filteredRadios = filterRadios(list.radios, e.target.value, name.value);
+    // console.log(filteredRadios);
+    // setAux(filteredRadios);
   };
   const filterName = (e) => {
     let city = document.querySelector("#ciudad");
@@ -144,7 +148,11 @@ function Radios() {
         </div>
         <div className="Radios_list">
           {aux.map((e) => {
-            return <RadioCard info={e} />;
+            return (
+              <div key={e.id}>
+                <RadioCard info={e} />
+              </div>
+            );
           })}
         </div>
         <footer className="Radios_footer"></footer>

@@ -2,6 +2,7 @@
   "name": "next-test",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://epabackend.azurewebsites.net",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
