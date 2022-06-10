@@ -2,10 +2,19 @@ import axios from "axios";
 import Slider from "../components/Slider";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
+import { useState, useEffect } from "react";
 export default function Home(data) {
   const dataHome = data.radios[0];
   const shadowHome = dataHome.shadow;
+  const [d, setD] = useState([]);
 
+  useEffect(() => {
+    fetch("https://epabackend.azurewebsites.net/radios?name=ond")
+      .then((res) => res.json())
+      .then((response) => setD(response));
+  }, []);
+
+  console.log(d.length);
   console.log(shadowHome);
   return (
     <Layout>

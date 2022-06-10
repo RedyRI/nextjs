@@ -1,9 +1,8 @@
 function RadioCard(props) {
   const info = props.info;
-  let key = 0;
   if (info.name != "home") {
     return (
-      <div className="aqui" key={key++}>
+      <div>
         <style jsx>{`
           @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
           .RadioCard {
@@ -54,7 +53,7 @@ function RadioCard(props) {
             left: 0;
           }
         `}</style>
-        <div key={info.id} className="RadioCard">
+        <div className="RadioCard">
           <div className="RadioCard_name">{info.page}</div>
           <div className="RadioCard_body-play"></div>
         </div>
