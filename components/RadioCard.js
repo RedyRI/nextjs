@@ -4,7 +4,6 @@ function RadioCard(props) {
     return (
       <div>
         <style jsx>{`
-          @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
           .RadioCard {
             min-width: 200px;
             max-width: 200px;

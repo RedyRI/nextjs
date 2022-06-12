@@ -7,9 +7,9 @@ function Slider(props) {
   const shadow = props.shadow;
   const data = props.data;
   const handleClick = (e) => {
-    console.log("cliced");
+    // console.log("cliced");
   };
-  console.log(`the array length is ${props.data.length}`);
+  // console.log(`the array length is ${props.data.length}`);
 
   if (props.data.length == 0) {
     return (
@@ -146,8 +146,8 @@ function Slider(props) {
         <Swiper
           spaceBetween={0}
           slidesPerView={4}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
         >
           {data?.map((item) => {
             if (item.name != "home") {

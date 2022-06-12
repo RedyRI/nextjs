@@ -11,7 +11,7 @@ function RadiosPageNavbar() {
           left: 0;
           width: 100vw;
           height: 60px;
-          background: black;
+          background-color: black;
           z-index: 10;
         }
         .Radios_navbar-bar {

@@ -5,6 +5,7 @@ import RadiosPageNavbar from "../components/RadiosPageNavbar";
 import Navbar from "/components/Navbar";
 import filterRadios from "../helpers/filterRadios";
 import Playbar from "../components/Playbar";
+import Head from "next/head";
 
 function Radios() {
   const [list, setList] = useState([]);
@@ -29,12 +30,57 @@ function Radios() {
     let filteredRadios = filterRadios(list, city.value, e.target.value);
     setAux(filteredRadios);
   };
-  /* test code goes here*/
-  console.log(`list is ${list}`);
-  const [checked, setChecked] = React.useState(false);
-  /* test code goes here*/
   return (
     <>
+      <Head>
+        <title>EPA - FM | RADIOS</title>
+      </Head>
+      <div className="Radios">
+        <div className="Radios_header">
+          <RadiosPageNavbar />
+        </div>
+
+        <h1>EPA FM</h1>
+        <div className="Radios_filtro">
+          <input
+            id="nombre"
+            onChange={filterName}
+            className="Radios_filtro-input"
+            type="text"
+            placeholder="Que radio esuchar..."
+          />
+          <label className="select-label" htmlFor="ciudad">
+            Ciudad:
+          </label>
+          <select
+            onChange={filterCity}
+            className="Radios_filtro-select"
+            name="ciudad"
+            id="ciudad"
+          >
+            <option className="select-option" value="" defaultValue>
+              Todas
+            </option>
+            <option value="lima">Lima</option>
+            <option value="cusco">Cusco</option>
+            <option value="piura">Piura</option>
+            <option value="trujillo">Trujillo</option>
+            <option value="cajamarca">Cajamarca</option>
+            <option value="chimbote">Chimbote</option>
+            <option value="arequipa">Arequipa</option>
+          </select>
+        </div>
+        <div className="Radios_list">
+          {aux.map((e) => {
+            return (
+              <div key={e.id}>
+                <RadioCard info={e} />
+              </div>
+            );
+          })}
+        </div>
+        <footer className="Radios_footer"></footer>
+      </div>
       <style jsx>
         {`
           .Radios {
@@ -101,60 +147,6 @@ function Radios() {
           }
         `}
       </style>
-      <div className="Radios">
-        <div className="Radios_header">
-          <RadiosPageNavbar />
-        </div>
-        <div className="Radios_navbar">
-          <Navbar />
-        </div>
-        <h1>EPA FM</h1>
-        <div className="Radios_filtro">
-          <input
-            id="nombre"
-            onChange={filterName}
-            className="Radios_filtro-input"
-            type="text"
-            placeholder="Que radio esuchar..."
-          />
-          <label className="select-label" htmlFor="ciudad">
-            Ciudad:
-          </label>
-          <select
-            onChange={filterCity}
-            className="Radios_filtro-select"
-            name="ciudad"
-            id="ciudad"
-          >
-            <option className="select-option" value="" defaultValue>
-              Todas
-            </option>
-            <option value="lima">Lima</option>
-            <option value="cusco">Cusco</option>
-            <option value="piura">Piura</option>
-            <option value="trujillo">Trujillo</option>
-            <option value="cajamarca">Cajamarca</option>
-            <option value="chimbote">Chimbote</option>
-            <option value="arequipa">Arequipa</option>
-          </select>
-        </div>
-        <div className="Radios_list">
-          {aux.map((e) => {
-            return (
-              <div key={e.id}>
-                <RadioCard info={e} />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* test code here  */}
-
-        {/* test code here  */}
-
-        <footer className="Radios_footer"></footer>
-        <Playbar />
-      </div>
     </>
   );
 }

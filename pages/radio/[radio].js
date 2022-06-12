@@ -5,6 +5,7 @@ import Slider from "../../components/Slider";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Playbar from "../../components/Playbar";
+import Head from "next/head";
 
 function Radio() {
   const [data, setData] = useState([]);
@@ -29,48 +30,19 @@ function Radio() {
   }, []);
 
   // `https://epabackend.azurewebsites.net/radios?page=${router.query.radio}`;
-  console.log(router.query.radio);
-  console.log(radio);
+  // console.log(router.query.radio);
+  // console.log(radio);
   return (
-    <Layout>
-      <style jsx>
-        {`
-          * {
-            box-sizing: border-box;
-          }
-          .Radio {
-            width: 100%;
-            height: 100vh;
-            background-color: black;
-            background-image: ${background};
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            padding-top: 80px;
-            overflow: hidden;
-          }
-          .Radio_logo {
-            width: 400px;
-            height: 400px;
-            margin: 20px auto 0 auto;
-          }
-          .Radio_logo.artistas {
-          }
-
-          .Radio_logo.artistas > img {
-          }
-          .Radio_logo-img {
-            width: 100%;
-            height: auto;
-          }
-        `}
-      </style>
+    <>
+      <Head>
+        <title>EPA - FM | Radio | {radio.page}</title>
+      </Head>
       <main className="Radio">
         <Header />
         <div className="Radio_slider">
           <Slider shadow={radio.shadow} data={data} />
         </div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div
           className={`Radio_logo ${
             radio.name == "oncesesenta" ||
@@ -94,9 +66,40 @@ function Radio() {
             alt={radio.name}
           />
         </div>
-        {/* <Playbar /> */}
+        <style jsx>
+          {`
+            * {
+              box-sizing: border-box;
+            }
+            .Radio {
+              width: 100%;
+              height: 100vh;
+              background-color: black;
+              background-image: ${background};
+              background-size: cover;
+              margin: 0;
+              padding: 0;
+              padding-top: 80px;
+              overflow: hidden;
+            }
+            .Radio_logo {
+              width: 400px;
+              height: 400px;
+              margin: 20px auto 0 auto;
+            }
+            .Radio_logo.artistas {
+            }
+
+            .Radio_logo.artistas > img {
+            }
+            .Radio_logo-img {
+              width: 100%;
+              height: auto;
+            }
+          `}
+        </style>
       </main>
-    </Layout>
+    </>
   );
 }
 
